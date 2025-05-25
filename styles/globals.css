@@ -6,3 +6,10 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+@font-face {
+  font-family: 'Merhique Regular'; /* This is the name you'll use in Tailwind config */
+  src: url('/fonts/Merhique Regular.ttf') format('truetype'); /* Path to your font file */
+  font-weight: normal; /* Adjust if the font has different weights */
+  font-style: normal;
+  font-display: swap; /* Best practice for performance */
+}
