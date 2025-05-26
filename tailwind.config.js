@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -19,7 +18,6 @@ module.exports = {
   plugins: [],
 };
 
-=======
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -32,10 +30,9 @@ module.exports = {
       fontFamily: {
         serif: ['"Playfair Display"', "serif"],
         sans: ['"Inter"', "sans-serif"],
+        logo: ['"Merhique Regular"', "truetype"]
       },
     },
   },
   plugins: [],
 };
-
->>>>>>> df442b3cd1a1dd989facdff7038f804362296ddb

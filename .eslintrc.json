@@ -1,0 +1,17 @@
+// .eslintrc.json
+{
+  "extends": [
+    "next/core-web-vitals", // Keep this for Next.js specific rules
+    "plugin:prettier/recommended" // THIS IS CRUCIAL for Prettier integration
+  ],
+  "rules": {
+    // You can add your custom ESLint rules here if needed.
+    // For Prettier specifically, you might want to explicitly set its rule.
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto" // Recommended for cross-OS compatibility (Windows/Linux)
+      }
+    ]
+  }
+}
