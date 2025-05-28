@@ -2,15 +2,18 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { Search, User, ShoppingBag, Menu, X } from 'lucide-react';
+import { Search, HeartPlus, Contact, Menu, X } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import Sidebar from './Sidebar'; // <--- IMPORT THE NEW SIDEBAR COMPONENT
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  // State to manage the overall hover effect:
-  // 'default': Navbar is white, icons are neutral-400
-  // 'logoHovered': Navbar is black, logo/icons are white
-  // 'iconHovered': Navbar is white, specific icon is neutral-700
   const [hoverState, setHoverState] = useState('default');
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // <--- NEW STATE FOR SIDEBAR
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,78 +26,99 @@ export default function Navbar() {
   // --- Dynamic Class Logic ---
   const navbarBgClass = hoverState === 'logoHovered' ? 'bg-neutral-900' : 'bg-white';
   const logoTextColorClass = hoverState === 'logoHovered' ? 'text-white' : 'text-neutral-900';
-
-  // Base color for icons when not specifically hovered
   const iconBaseColorClass = hoverState === 'logoHovered' ? 'text-white' : 'text-neutral-400';
 
-  // Function to get the class for an individual icon
-  // This logic is slightly more complex as it depends on whether THIS icon is hovered AND the general state
   const getIconClass = (iconName) => {
-    // If the overall state is 'logoHovered', icons are white by default, and we don't apply individual hover.
-    // However, if an icon *itself* is hovered (which will set hoverState to 'iconHovered'),
-    // then that specific icon needs to turn neutral-700.
-    // This is handled by React's re-render on hoverState change.
-    
-    // Default color based on current overall state
-    let baseClass = iconBaseColorClass;
+    return `${iconBaseColorClass} w-4 h-4 cursor-pointer hover:text-neutral-700 transition-colors duration-200`;
+  };
 
-    // We don't apply direct Tailwind hover classes here,
-    // as we're managing the hover state with JS
-    return `${baseClass} w-4 h-4 cursor-pointer`;
+  // --- Search Functionality ---
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      router.push(`/search?query=${encodeURIComponent(searchTerm)}`);
+      setSearchTerm('');
+      setIsSearchOpen(false);
+    }
   };
 
   return (
-    <header className={`w-full ${navbarBgClass} transition-colors duration-300`}>
+    <header className={`w-full ${navbarBgClass} transition-colors duration-300 z-50 sticky top-0`}>
       <nav className="relative max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        {/* Left Side: Search Icon */}
+        {/* Left Side: Search Icon or Input */}
         <div className="flex items-center">
-          <Search
-            className={getIconClass('Search')}
-            // On mouse enter an icon, if logo was hovered, revert navbar to default and show icon hover color
-            onMouseEnter={() => setHoverState('iconHovered')}
-            onMouseLeave={() => setHoverState('default')}
-            style={hoverState === 'iconHovered' ? { color: 'rgb(82 82 82)' } : {}} // Apply neutral-700 if iconHovered
-          />
+          {!isSearchOpen ? (
+            <Search
+              className={getIconClass('Search')}
+              onClick={() => setIsSearchOpen(true)}
+              aria-label="Open search input"
+            />
+          ) : (
+            <form onSubmit={handleSearchSubmit} className="flex items-center">
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Search..."
+                className="p-1 border-b border-neutral-400 focus:border-neutral-900 outline-none bg-transparent text-sm"
+                autoFocus
+                onBlur={() => {
+                  setTimeout(() => {
+                    if (!searchTerm.trim()) {
+                      setIsSearchOpen(false);
+                    }
+                  }, 100);
+                }}
+              />
+              <X
+                className="w-4 h-4 text-neutral-400 ml-2 cursor-pointer hover:text-neutral-700"
+                onClick={() => {
+                  setIsSearchOpen(false);
+                  setSearchTerm('');
+                }}
+                aria-label="Close search input"
+              />
+            </form>
+          )}
         </div>
 
         {/* Center: Logo */}
         <div
           className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
           onMouseEnter={() => setHoverState('logoHovered')}
-          onMouseLeave={() => {
-            // Only revert to default if no icon is currently hovered
-            if (hoverState === 'logoHovered') {
-              setHoverState('default');
-            }
-          }}
+          onMouseLeave={() => setHoverState('default')}
         >
-          <h1 className={`text-2xl font-logo tracking-widest cursor-pointer ${logoTextColorClass} transition-colors duration-300`}>
+          <Link href="/" className={`text-4xl font-logo tracking-widest cursor-pointer ${logoTextColorClass} transition-colors duration-300`}>
             CHVIVAN
-          </h1>
+          </Link>
         </div>
 
-        {/* Right Side: ShoppingBag, User, Menu Icons */}
+        {/* Right Side: HeartPlus, Contact, Menu Icons */}
         <div className="flex items-center space-x-4">
-          <ShoppingBag
-            className={getIconClass('ShoppingBag')}
-            onMouseEnter={() => setHoverState('iconHovered')}
-            onMouseLeave={() => setHoverState('default')}
-            style={hoverState === 'iconHovered' ? { color: 'rgb(82 82 82)' } : {}}
-          />
-          <User
-            className={getIconClass('User')}
-            onMouseEnter={() => setHoverState('iconHovered')}
-            onMouseLeave={() => setHoverState('default')}
-            style={hoverState === 'iconHovered' ? { color: 'rgb(82 82 82)' } : {}}
-          />
+          <Link href="/categories" passHref>
+            <HeartPlus
+              className={getIconClass('HeartPlus')}
+              aria-label="View categories"
+            />
+          </Link>
+
+          <Link href="/contact" passHref>
+            <Contact
+              className={getIconClass('Contact')}
+              aria-label="Contact us"
+            />
+          </Link>
+
           <Menu
             className={getIconClass('Menu')}
-            onMouseEnter={() => setHoverState('iconHovered')}
-            onMouseLeave={() => setHoverState('default')}
-            style={hoverState === 'iconHovered' ? { color: 'rgb(82 82 82)' } : {}}
+            onClick={() => setIsSidebarOpen(true)} // <--- TOGGLE SIDEBAR OPEN
+            aria-label="Open navigation menu"
           />
         </div>
       </nav>
+
+      {/* Render the Sidebar component */}
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} /> {/* <--- ADD THIS */}
     </header>
   );
 }

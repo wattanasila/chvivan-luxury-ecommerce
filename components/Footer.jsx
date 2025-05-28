@@ -40,8 +40,7 @@ export default function Footer() {
         <div>
           <h4 className="font-semibold mb-2">Follow Us</h4>
           <ul className="space-y-2 text-sm">
-            <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-700 transition">Instagram</a></li>
-            <li><a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-700 transition">Pinterest</a></li>
+            <li><a href="https://instagram.com/chvivanofficial" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-700 transition">Instagram</a></li>
             <li><Link href="/newsletter" className="hover:text-neutral-700 transition">Newsletter</Link></li>
           </ul>
         </div>

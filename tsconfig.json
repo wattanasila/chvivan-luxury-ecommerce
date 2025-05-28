@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
+    "incremental": true,
+    "module": "esnext",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx"
+, "app/categories/[categoryName]/page.jsx", "app/categories/page.jsx", "app/products/[productId]/page.jsx", "app/products/[productId]/ProductClientPage.jsx", "app/about/page.jsx", "app/search/page.jsx", "app/impressum/page.jsx", "app/contact/page.jsx"  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

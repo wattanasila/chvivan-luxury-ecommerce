@@ -19,7 +19,7 @@ export default function Footer() {
 
         {/* Legal Section */}
         <div>
-          <h4 className="font-semibold mb-2">Legal</h4>
+          <h5 className="font-semibold mb-2">Legal</h5>
           <ul className="space-y-2 text-sm">
             <li><Link href="/privacy-cookies" className="hover:text-neutral-700 transition">Privacy & Cookies</Link></li>
             <li><Link href="/terms" className="hover:text-neutral-700 transition">Terms of Use</Link></li>

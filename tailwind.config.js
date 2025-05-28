@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}", // Consider adding mdx if you might use it
+    // "./pages/**/*.{js,ts,jsx,tsx}", // <--- DELETE THIS LINE!
+    "./components/**/*.{js,ts,jsx,tsx,mdx}", // Consider adding mdx
   ],
   theme: {
     extend: {
@@ -11,26 +11,7 @@ module.exports = {
         serif: ['"Playfair Display"', "serif"],
         sans: ['"Inter"', "sans-serif"],
         // Add your new custom font here for the logo
-        logo: ['Merhique Regular', 'sans-serif'], // 'Merhique Regular' must match the font-family name from @font-face
-      },
-    },
-  },
-  plugins: [],
-};
-
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {
-      fontFamily: {
-        serif: ['"Playfair Display"', "serif"],
-        sans: ['"Inter"', "sans-serif"],
-        logo: ['"Merhique Regular"', "truetype"]
+        logo: ['RetGanon', 'sans-serif'], // Corrected: 'RetGanon' as the font family, 'sans-serif' as fallback
       },
     },
   },
