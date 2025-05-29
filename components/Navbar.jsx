@@ -89,7 +89,7 @@ export default function Navbar() {
           onMouseLeave={() => setHoverState('default')}
         >
           <Link href="/" className={`text-4xl font-logo tracking-widest cursor-pointer ${logoTextColorClass} transition-colors duration-300`}>
-            CHVIVAN
+            CHVI
           </Link>
         </div>
 

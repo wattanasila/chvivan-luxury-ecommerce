@@ -85,10 +85,10 @@ const handleSearch = (e) => { // Removed type annotation for e
         </div>
         <div className="md:w-1/2 text-center md:text-center">
           <h3 className="text-3xl md:text-3xl font-outfit mb-6 text-gray-900 leading-tight">
-            Qualität & Design, die begeistern
+            From stitches to syntax.
           </h3>
           <p className="text-gray-700 leading-relaxed mb-6">
-            Entdecken Sie unsere sorgfältig ausgewählten Möbel und Elektronikprodukte, die zeitloses Design mit höchster Handwerkskunst verbinden.
+            "A digital stitch through time CHVIVAN weaves code, memory, and couture into a future-facing identity"
           </p>
           {/* Link the "Jetzt entdecken" button to the main categories page */}
           <Link
