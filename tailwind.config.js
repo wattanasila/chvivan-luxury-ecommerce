@@ -11,7 +11,7 @@ module.exports = {
         serif: ['"Playfair Display"', "serif"],
         sans: ['"Inter"', "sans-serif"],
         // Add your new custom font here for the logo
-        logo: ['RetGanon', 'sans-serif'], // Corrected: 'RetGanon' as the font family, 'sans-serif' as fallback
+        logo: ['AfacadFlux-Light', 'sans-serif'], // Corrected: 'kongtext' as the font family, 'sans-serif' as fallback
       },
     },
   },

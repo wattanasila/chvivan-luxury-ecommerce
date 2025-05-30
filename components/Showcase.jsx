@@ -85,10 +85,10 @@ const handleSearch = (e) => { // Removed type annotation for e
         </div>
         <div className="md:w-1/2 text-center md:text-center">
           <h3 className="text-3xl md:text-3xl font-outfit mb-6 text-gray-900 leading-tight">
-            From stitches to syntax.
+            Designed to be undone
           </h3>
           <p className="text-gray-700 leading-relaxed mb-6">
-            "A digital stitch through time CHVIVAN weaves code, memory, and couture into a future-facing identity"
+            "A whisper, if you're listening."
           </p>
           {/* Link the "Jetzt entdecken" button to the main categories page */}
           <Link

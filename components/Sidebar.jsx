@@ -53,7 +53,7 @@ export default function Sidebar({ isOpen, onClose }) {
               New
             </Link>
             <Link href="/chvivan-view" onClick={handleCloseClick} className="hover:text-neutral-700 transition-colors">
-              View of CHVIVAN
+              View of CHOUÉ
             </Link>
           </nav>
 

@@ -88,8 +88,8 @@ export default function Navbar() {
           onMouseEnter={() => setHoverState('logoHovered')}
           onMouseLeave={() => setHoverState('default')}
         >
-          <Link href="/" className={`text-4xl font-logo tracking-widest cursor-pointer ${logoTextColorClass} transition-colors duration-300`}>
-            CHVI
+          <Link href="/" className={`text-3xl font-logo tracking-widest cursor-pointer ${logoTextColorClass} transition-colors duration-300`}>
+            CHOUÉ
           </Link>
         </div>
 

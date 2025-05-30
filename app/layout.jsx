@@ -5,7 +5,7 @@ import WishlistSidebar from '../components/WishlistSidebar';
 import { WishlistProvider } from '../context/WishlistContext';
 
 export const metadata = {
-  title: "CHVIVAN",
+  title: "CHOUÉ",
   description: "Luxury e-commerce for modern minimalism.",
 };
 

@@ -13,7 +13,7 @@ export default function Footer() {
             <li><Link href="/services" className="hover:text-neutral-700 transition">Our services</Link></li>
             <li><Link href="/orders" className="hover:text-neutral-700 transition">My Orders</Link></li>
             <li><Link href="/contact" className="hover:text-neutral-700 transition">Contact</Link></li>
-            <li><Link href="/about" className="hover:text-neutral-700 transition">About CHVIVAN</Link></li>
+            <li><Link href="/about" className="hover:text-neutral-700 transition">About CHOUÉ</Link></li>
           </ul>
         </div>
 
@@ -40,7 +40,7 @@ export default function Footer() {
         <div>
           <h4 className="font-semibold mb-2">Follow Us</h4>
           <ul className="space-y-2 text-sm">
-            <li><a href="https://instagram.com/chvivanofficial" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-700 transition">Instagram</a></li>
+            <li><a href="https://instagram.com/choueofficial" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-700 transition">Instagram</a></li>
             <li><Link href="/newsletter" className="hover:text-neutral-700 transition">Newsletter</Link></li>
           </ul>
         </div>
